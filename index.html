@@ -6,11 +6,7 @@
   <title>BIYU | B2B SaaS for Rental Asset Management</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Smooth scrolling */
-    html {
-      scroll-behavior: smooth;
-    }
-    /* Fade-in animation for sections */
+    html { scroll-behavior: smooth; }
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -26,7 +22,9 @@
   <!-- Header -->
   <header class="bg-white shadow-sm fixed w-full z-10">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-      <div class="text-2xl font-bold text-blue-600">BIYU</div>
+      <div>
+        <img src="images/logo.png" alt="BIYU Logo" class="max-h-10 w-auto">
+      </div>
       <div class="space-x-4">
         <a href="#home" class="text-gray-600 hover:text-blue-600 transition">Home</a>
         <a href="#about" class="text-gray-600 hover:text-blue-600 transition">About</a>
@@ -36,10 +34,10 @@
   </header>
 
   <!-- Hero Section -->
-  <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="text-4xl sm:text-5xl font-extrabold mb-4 fade-in">Enabling the Smoothest Way to Rent</h1>
-      <p class="text-lg sm:text-xl mb-8 fade-in">BIYU is transitioning to a B2B SaaS platform, automating asset management for rental and PaaS companies.</p>
+  <section id="home" class="min-h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('images/hero-bg.jpg');">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-black/50 py-12 rounded-lg">
+      <h1 class="text-4xl sm:text-5xl font-extrabold mb-4 text-white fade-in">Enabling the Smoothest Way to Rent</h1>
+      <p class="text-lg sm:text-xl mb-8 text-white fade-in">BIYU is transitioning to a B2B SaaS platform, automating asset management for rental and PaaS companies.</p>
       <a href="#contact" class="inline-block bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition fade-in">Get in Touch</a>
     </div>
   </section>
@@ -75,14 +73,13 @@
   <!-- Footer -->
   <footer class="bg-gray-800 text-white py-8">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-gray-400">&copy; 2025 BIYU. All rights reserved.</p>
+      <p class="text-gray-400">© 2025 BIYU. All rights reserved.</p>
       <p class="text-gray-400 mt-2">Email: <a href="mailto:info@biyu.com" class="hover:text-blue-400 transition">info@biyu.com</a></p>
     </div>
   </footer>
 
   <!-- JavaScript for fade-in animations -->
   <script>
-    // Fade-in animation on scroll
     const fadeElements = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -91,7 +88,6 @@
         }
       });
     }, { threshold: 0.1 });
-
     fadeElements.forEach(el => observer.observe(el));
   </script>
 </body>
