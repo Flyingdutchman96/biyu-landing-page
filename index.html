@@ -187,17 +187,20 @@
       }
     );
 
-    // Typed.js for Contact section heading
+   // Typed.js for Contact section heading
 const typed = new Typed('#typed', {
-  strings: ['Ready to Streamline Your Rentals?', 'Still Juggling Spreadsheets?', 'What if Your Tools Rented Themselves?', 'Ready to Streamline Your Rentals?'],
+  strings: ['Still Juggling Spreadsheets?', 'What if Your Tools Rented Themselves?', 'Ready to Streamline Your Rentals?', 'Transform Your Rental Business Today!'],
   typeSpeed: 15,
   backSpeed: 7,
   backDelay: 1000,
   loop: true,
-  onLastStringBackspaced: () => {
-    setTimeout(() => {
-      typed.reset();
-    }, 5000); // 5 seconds delay
+  onComplete: (self) => {
+    if (self.arrayPos === self.strings.length - 1) { // Check if it's the last string
+      self.stop(); // Stop the typing animation
+      setTimeout(() => {
+        self.start(); // Restart after 5 seconds
+      }, 5000); // 5 seconds delay
+    }
   }
 });
   </script>
