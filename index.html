@@ -7,12 +7,15 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <style>
     /* Smooth scrolling */
     html {
       scroll-behavior: smooth;
     }
-    /* Custom font and improved typography */
+    /* Custom font and typography */
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
@@ -48,6 +51,10 @@
       position: relative;
       z-index: 1;
     }
+    /* Slide-in initial state */
+    .slide-in-left, .slide-in-right {
+      opacity: 0;
+    }
   </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -82,11 +89,11 @@
       <p class="text-lg text-gray-600 mb-6 fade-in">At BIYU, we’re shifting our focus from B2C to B2B, evolving our software into a powerful B2B SaaS solution. Our platform is designed to fully automate asset management for rental and Platform-as-a-Service (PaaS) companies, streamlining operations and boosting efficiency.</p>
       <p class="text-lg text-gray-600 mb-10 fade-in">As a bootstrapped company, we’re taking this transition one step at a time. Our website will soon reflect these exciting changes, but for now, we’re focused on building the best tools to empower your business.</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-12">
-        <div class="fade-in bg-gray-50 p-6 rounded-lg hover-scale">
+        <div class="fade-in slide-in-left bg-gray-50 p-6 rounded-lg hover-scale">
           <h3 class="text-xl font-semibold mb-2">Why B2B SaaS?</h3>
           <p class="text-gray-600">Our platform simplifies complex workflows, letting rental businesses focus on growth instead of logistics.</p>
         </div>
-        <div class="fade-in bg-gray-50 p-6 rounded-lg hover-scale">
+        <div class="fade-in slide-in-right bg-gray-50 p-6 rounded-lg hover-scale">
           <h3 class="text-xl font-semibold mb-2">What’s Next?</h3>
           <p class="text-gray-600">We’re rolling out features tailored for asset tracking, scheduling, and analytics—stay tuned!</p>
         </div>
@@ -97,7 +104,7 @@
   <!-- Contact Section -->
   <section id="contact" class="py-24 bg-gray-100">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl font-bold mb-10 fade-in">Ready to Streamline Your Rentals?</h2>
+      <h2 class="text-3xl font-bold mb-10 fade-in"><span id="typed"></span></h2>
       <p class="text-lg text-gray-600 mb-10 fade-in">We’re excited to partner with rental and PaaS companies. Reach out to learn how BIYU’s SaaS platform can transform your operations.</p>
       <a href="mailto:info@biyu.com" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition fade-in hover-scale">Contact Us</a>
     </div>
@@ -111,7 +118,7 @@
     </div>
   </footer>
 
-  <!-- JavaScript for fade-in animations and particles.js -->
+  <!-- JavaScript for animations -->
   <script>
     // Fade-in animation
     const fadeElements = document.querySelectorAll('.fade-in');
@@ -142,6 +149,58 @@
       },
       retina_detect: true
     });
+
+    // GSAP Slide-In Animations
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Ensure cards are visible initially
+    gsap.set(".slide-in-left, .slide-in-right", { opacity: 0, x: 0 });
+
+    gsap.fromTo(".slide-in-left", 
+      { x: -100, opacity: 0 },
+      { 
+        scrollTrigger: {
+          trigger: "#about",
+          start: "top 80%",
+          toggleActions: "play none none none"
+        },
+        x: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "power3.out"
+      }
+    );
+
+    gsap.fromTo(".slide-in-right", 
+      { x: 100, opacity: 0 },
+      { 
+        scrollTrigger: {
+          trigger: "#about",
+          start: "top 80%",
+          toggleActions: "play none none none"
+        },
+        x: 0,
+        opacity: 1,
+        duration: 0.8,
+        delay: 0.2,
+        ease: "power3.out"
+      }
+    );
+
+    // Typed.js for Contact section heading
+const typed = new Typed('#typed', {
+  strings: ['Ready to Streamline Your Rentals?', 'Still Juggling Spreadsheets?', 'What if Your Tools Rented Themselves?', 'Ready to Streamline Your Rentals?'],
+  typeSpeed: 15,
+  backSpeed: 7,
+  backDelay: 1000,
+  loop: true,
+  onLastStringBackspaced: () => {
+    setTimeout(() => {
+      typed.reset();
+    }, 5000); // 5 seconds delay
+  }
+});
   </script>
 </body>
 </html>
+
