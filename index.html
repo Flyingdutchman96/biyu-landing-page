@@ -3,41 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BIYU | B2B SaaS for Rental Asset Management</title>
+  <title>Mazhar Technology | Pioneering Robotics in Afghanistan</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <style>
-    /* Smooth scrolling */
     html {
       scroll-behavior: smooth;
     }
-    /* Custom font and typography */
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      overflow-x: hidden;
     }
-    /* Fade-in animation */
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     }
     .fade-in.visible {
       opacity: 1;
       transform: translateY(0);
     }
-    /* Hover effects for buttons and cards */
     .hover-scale {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.2s ease;
     }
     .hover-scale:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transform: scale(1.03);
     }
-    /* Particles container */
     #particles-js {
       position: absolute;
       width: 100%;
@@ -46,106 +41,269 @@
       left: 0;
       z-index: 0;
     }
-    /* Ensure hero content is above particles */
     .hero-content {
       position: relative;
       z-index: 1;
     }
-    /* Slide-in initial state */
     .slide-in-left, .slide-in-right {
       opacity: 0;
     }
+    .gradient-text {
+      background: linear-gradient(90deg, #2563eb, #4ade80);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      opacity: 0.9;
+    }
+    .nav-link {
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    .nav-link.active {
+      color: #2563eb;
+      font-weight: 600;
+    }
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #2563eb;
+    }
+    .nav-menu {
+      transition: max-height 0.3s ease-in-out;
+    }
+    .hamburger div {
+      transition: all 0.3s ease;
+    }
+    .hamburger.active .line1 {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active .line2 {
+      opacity: 0;
+    }
+    .hamburger.active .line3 {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
   </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-white text-gray-900">
   <!-- Header -->
-  <header class="bg-white shadow-sm fixed w-full z-10">
+  <header class="bg-white shadow-md fixed w-full z-20">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
       <div>
-        <img src="images/logo.png" alt="BIYU Logo" class="max-h-10 w-auto hover-scale">
+        <img src="images/logo.png" alt="Mazhar Technology Logo" class="max-h-10 w-auto hover-scale">
       </div>
-      <div class="space-x-4">
-        <a href="#home" class="text-gray-600 hover:text-blue-600 transition hover:underline">Home</a>
-        <a href="#about" class="text-gray-600 hover:text-blue-600 transition hover:underline">About</a>
-        <a href="#contact" class="text-gray-600 hover:text-blue-600 transition hover:underline">Contact</a>
+      <div class="hidden md:flex space-x-6">
+        <a href="#home" class="nav-link text-gray-700 hover:text-blue-600 font-medium transition">Home</a>
+        <a href="#about" class="nav-link text-gray-700 hover:text-blue-600 font-medium transition">About</a>
+        <a href="#services" class="nav-link text-gray-700 hover:text-blue-600 font-medium transition">Services</a>
+        <a href="#products" class="nav-link text-gray-700 hover:text-blue-600 font-medium transition">Products</a>
+        <a href="#collaborations" class="nav-link text-gray-700 hover:text-blue-600 font-medium transition">Collaborations</a>
+        <a href="#media" class="nav-link text-gray-700 hover:text-blue-600 font-medium transition">Media</a>
+        <a href="#contact" class="nav-link text-gray-7
+00 hover:text-blue-600 font-medium transition">Contact</a>
+      </div>
+      <div class="md:hidden flex items-center">
+        <button class="hamburger flex flex-col justify-center items-center w-8 h-8 space-y-1.5" onclick="toggleMenu()">
+          <div class="line1 w-6 h-0.5 bg-gray-700"></div>
+          <div class="line2 w-6 h-0.5 bg-gray-700"></div>
+          <div class="line3 w-6 h-0.5 bg-gray-700"></div>
+        </button>
       </div>
     </nav>
+    <div class="nav-menu md:hidden max-h-0 overflow-hidden bg-white shadow-md">
+      <div class="flex flex-col items-center space-y-4 py-4">
+        <a href="#home" class="nav-link text-gray-700 hover:text-blue-600 font-medium transition">Home</a>
+        <a href="#about" class="nav-link text-gray-700 hover:text-blue-600 font-medium transition">About</a>
+        <a href="#services" class="nav-link text-gray-700 hover:text-blue-600 font-medium transition">Services</a>
+        <a href="#products" class="nav-link text-gray-700 hover:text-blue-600 font-medium transition">Products</a>
+        <a href="#collaborations" class="nav-link text-gray-700 hover:text-blue-600 font-medium transition">Collaborations</a>
+        <a href="#media" class="nav-link text-gray-700 hover:text-blue-600 font-medium transition">Media</a>
+        <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600 font-medium transition">Contact</a>
+      </div>
+    </div>
   </header>
 
-  <!-- Hero Section with Particles -->
-  <section id="home" class="min-h-screen flex items-center justify-center bg-cover bg-center relative" style="background-image: url('images/hero-bg.jpg');">
+  <!-- Hero Section with Header Image and Particles -->
+  <section id="home" class="min-h-screen flex items-center justify-center bg-cover bg-center relative overflow-hidden" style="background-image: url('images/hero-bg.png');">
     <div id="particles-js"></div>
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-black/50 py-16 rounded-lg hero-content">
-      <h1 class="text-4xl sm:text-5xl font-extrabold mb-4 text-white fade-in">Enabling the Smoothest Way to Rent</h1>
-      <p class="text-lg sm:text-xl mb-8 text-white fade-in">BIYU is transitioning to a B2B SaaS platform, automating asset management for rental and PaaS companies.</p>
-      <a href="#contact" class="inline-block bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition fade-in hover-scale">Get in Touch</a>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center hero-content py-16">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-blue-600 fade-in">Mazhar Technology</h1>
+      <p class="text-lg sm:text-xl lg:text-2xl mb-8 text-white fade-in">Afghanistan’s Premier Innovator in Robotics and Technology</p>
+      <a href="#contact" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md font-semibold text-base sm:text-lg hover:bg-blue-700 transition fade-in hover-scale">Join Our Mission</a>
     </div>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="py-24 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-center mb-10 fade-in">Our New Direction</h2>
-      <p class="text-lg text-gray-600 mb-6 fade-in">At BIYU, we’re shifting our focus from B2C to B2B, evolving our software into a powerful B2B SaaS solution. Our platform is designed to fully automate asset management for rental and Platform-as-a-Service (PaaS) companies, streamlining operations and boosting efficiency.</p>
-      <p class="text-lg text-gray-600 mb-10 fade-in">As a bootstrapped company, we’re taking this transition one step at a time. Our website will soon reflect these exciting changes, but for now, we’re focused on building the best tools to empower your business.</p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-12">
-        <div class="fade-in slide-in-left bg-gray-50 p-6 rounded-lg hover-scale">
-          <h3 class="text-xl font-semibold mb-2">Why B2B SaaS?</h3>
-          <p class="text-gray-600">Our platform simplifies complex workflows, letting rental businesses focus on growth instead of logistics.</p>
+  <section id="about" class="py-16 sm:py-20 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl font-bold text-center mb-10 gradient-text fade-in">About Us</h2>
+      <p class="text-base sm:text-lg text-gray-700 mb-8 text-center fade-in">Mazhar Technology leads robotics innovation in Afghanistan, delivering cutting-edge solutions to advance technology and empower communities.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 mt-10">
+        <div class="fade-in slide-in-left bg-white p-6 rounded-lg shadow-sm hover-scale">
+          <h3 class="text-lg sm:text-xl font-semibold mb-3 text-blue-600">Our Mission</h3>
+          <p class="text-gray-700 text-sm sm:text-base">To pioneer transformative robotics solutions that enhance industries and uplift communities across Afghanistan.</p>
         </div>
-        <div class="fade-in slide-in-right bg-gray-50 p-6 rounded-lg hover-scale">
-          <h3 class="text-xl font-semibold mb-2">What’s Next?</h3>
-          <p class="text-gray-600">We’re rolling out features tailored for asset tracking, scheduling, and analytics—stay tuned!</p>
+        <div class="fade-in slide-in-right bg-white p-6 rounded-lg shadow-sm hover-scale">
+          <h3 class="text-lg sm:text-xl font-semibold mb-3 text-blue-600">Our Vision</h3>
+          <p class="text-gray-700 text-sm sm:text-base">To position Afghanistan as a global hub for robotics and technological excellence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-16 sm:py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl font-bold text-center mb-10 gradient-text fade-in">Our Services</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div class="fade-in slide-in-left bg-gray-50 p-6 rounded-lg shadow-sm hover-scale">
+          <h3 class="text-lg sm:text-xl font-semibold mb-3 text-blue-600">Robotics Prototyping</h3>
+          <p class="text-gray-700 text-sm sm:text-base">Designing and developing advanced robotic prototypes tailored to your needs.</p>
+        </div>
+        <div class="fade-in slide-in-right bg-gray-50 p-6 rounded-lg shadow-sm hover-scale">
+          <h3 class="text-lg sm:text-xl font-semibold mb-3 text-blue-600">Educational Programs</h3>
+          <p class="text-gray-700 text-sm sm:text-base">Inspiring the next generation with hands-on robotics workshops and courses.</p>
+        </div>
+        <div class="fade-in slide-in-left bg-gray-50 p-6 rounded-lg shadow-sm hover-scale">
+          <h3 class="text-lg sm:text-xl font-semibold mb-3 text-blue-600">Tech Consulting</h3>
+          <p class="text-gray-700 text-sm sm:text-base">Expert guidance to integrate robotics and automation into your operations.</p>
+        </div>
+        <div class="fade-in slide-in-right bg-gray-50 p-6 rounded-lg shadow-sm hover-scale">
+          <h3 class="text-lg sm:text-xl font-semibold mb-3 text-blue-600">Custom Solutions</h3>
+          <p class="text-gray-700 text-sm sm:text-base">Bespoke robotics systems to address your unique challenges.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="py-16 sm:py-20 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl font-bold text-center mb-10 gradient-text fade-in">Our Products</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div class="fade-in slide-in-left bg-white p-6 rounded-lg shadow-sm hover-scale">
+          <h3 class="text-lg sm:text-xl font-semibold mb-3 text-blue-600">3D Printing Solutions</h3>
+          <p class="text-gray-700 text-sm sm:text-base">State-of-the-art 3D printing for rapid prototyping and production of robotic components, offering precision and scalability.</p>
+        </div>
+        <div class="fade-in slide-in-left bg-white p-6 rounded-lg shadow-sm hover-scale">
+          <h3 class="text-lg sm:text-xl font-semibold mb-3 text-blue-600">Biomedical Development</h3>
+          <p class="text-gray-700 text-sm sm:text-base">In collaboration with IFC and UNDP, advancing biomedical technology with diagnostic tools and medical devices for better healthcare.</p>
+        </div>
+        <div class="fade-in slide-in-right bg-white p-6 rounded-lg shadow-sm hover-scale">
+          <h3 class="text-lg sm:text-xl font-semibold mb-3 text-blue-600">Robotic Hand Prosthesis</h3>
+          <p class="text-gray-700 text-sm sm:text-base">Affordable, high-functionality prosthetic hands restoring mobility and independence with intuitive control.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Collaborations Section -->
+  <section id="collaborations" class="py-16 sm:py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl font-bold text-center mb-10 gradient-text fade-in">Our Collaborations</h2>
+      <p class="text-base sm:text-lg text-gray-700 mb-8 text-center fade-in">Partnering with global organizations to drive innovation and impact in Afghanistan.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 mt-10">
+        <div class="fade-in slide-in-left bg-gray-50 p-6 rounded-lg shadow-sm hover-scale">
+          <h3 class="text-lg sm:text-xl font-semibold mb-3 text-blue-600">International Finance Corporation (IFC)</h3>
+          <p class="text-gray-700 text-sm sm:text-base">Advancing biomedical technology and fostering economic growth through cutting-edge medical devices and local entrepreneurship.</p>
+        </div>
+        <div class="fade-in slide-in-right bg-gray-50 p-6 rounded-lg shadow-sm hover-scale">
+          <h3 class="text-lg sm:text-xl font-semibold mb-3 text-blue-600">United Nations Development Programme (UNDP)</h3>
+          <p class="text-gray-700 text-sm sm:text-base">Enhancing healthcare access and empowering communities with technology-driven initiatives for education and resilience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Media Section -->
+  <section id="media" class="py-16 sm:py-20 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl font-bold text-center mb-10 gradient-text fade-in">Media</h2>
+      <p class="text-base sm:text-lg text-gray-700 mb-10 text-center fade-in">Explore our latest projects, events, and achievements.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+        <div class="fade-in slide-in-left rounded-lg overflow-hidden">
+          <div class="relative pb-[56.25%]">
+            <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F61564131980857%2Fvideos%2F1272625390666634&show_text=false&width=500&autoplay=true" class="absolute top-0 left-0 w-full h-full rounded-lg" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+          </div>
+        </div>
+        <div class="fade-in slide-in-right rounded-lg overflow-hidden">
+          <div class="relative pb-[56.25%]">
+            <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F61564131980857%2Fvideos%2F929742872328402&show_text=false&width=500&autoplay=true" class="absolute top-0 left-0 w-full h-full rounded-lg" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="py-24 bg-gray-100">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl font-bold mb-10 fade-in"><span id="typed"></span></h2>
-      <p class="text-lg text-gray-600 mb-10 fade-in">We’re excited to partner with rental and PaaS companies. Reach out to learn how BIYU’s SaaS platform can transform your operations.</p>
-      <a href="mailto:info@biyu.com" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition fade-in hover-scale">Contact Us</a>
+  <section id="contact" class="py-16 sm:py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-10 fade-in"><span id="typed" class="gradient-text"></span></h2>
+      <p class="text-base sm:text-lg text-gray-700 mb-10 fade-in">Ready to collaborate? Reach out via email or WhatsApp.</p>
+      <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+        <a href="mailto:mazhar.tec2024@gmail.com" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md font-semibold text-base sm:text-lg hover:bg-blue-700 transition fade-in hover-scale">Email Us</a>
+        <a href="https://wa.me/+93777346342" class="inline-block bg-green-600 text-white px-6 py-3 rounded-md font-semibold text-base sm:text-lg hover:bg-green-700 transition fade-in hover-scale">WhatsApp</a>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-800 text-white py-10">
+  <footer class="bg-gray-800 py-10 text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-gray-400">© 2025 BIYU. All rights reserved.</p>
-      <p class="text-gray-400 mt-2">Email: <a href="mailto:info@biyu.com" class="hover:text-blue-400 transition">info@biyu.com</a></p>
+      <p class="text-gray-300 text-sm sm:text-base">© 2025 Mazhar Technology. All rights reserved.</p>
+      <div class="mt-4 text-sm sm:text-base">
+        <p class="text-gray-300">Email: <a href="mailto:mazhar.tec2024@gmail.com" class="hover:text-blue-400 transition">mazhar.tec2024@gmail.com</a></p>
+        <p class="text-gray-300">WhatsApp: <a href="https://wa.me/+93777346342" class="hover:text-blue-400 transition">+93 77 734 6342</a></p>
+      </div>
+      <div class="mt-4 space-x-4 sm:space-x-6">
+        <a href="https://www.instagram.com/mazhar_tec/reels/" class="text-gray-300 hover:text-blue-400 text-sm sm:text-base transition">Instagram</a>
+        <a href="https://www.facebook.com/profile.php?id=61564131980857" class="text-gray-300 hover:text-blue-400 text-sm sm:text-base transition">Facebook</a>
+        <a href="https://www.linkedin.com/company/mazhartechnology" class="text-gray-300 hover:text-blue-400 text-sm sm:text-base transition">LinkedIn</a>
+        <a href="https://twitter.com/mazhartech" class="text-gray-300 hover:text-blue-400 text-sm sm:text-base transition">Twitter</a>
+      </div>
     </div>
   </footer>
 
-  <!-- JavaScript for animations -->
+  <!-- JavaScript for animations, navigation highlighting, and mobile menu -->
   <script>
+    // Toggle mobile menu
+    function toggleMenu() {
+      const menu = document.querySelector('.nav-menu');
+      const hamburger = document.querySelector('.hamburger');
+      menu.classList.toggle('max-h-0');
+      menu.classList.toggle('max-h-96');
+      hamburger.classList.toggle('active');
+    }
+
     // Fade-in animation
     const fadeElements = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver((entries) => {
+    const fadeObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
         }
       });
     }, { threshold: 0.1 });
-    fadeElements.forEach(el => observer.observe(el));
+    fadeElements.forEach(el => fadeObserver.observe(el));
 
     // Initialize particles.js
     particlesJS('particles-js', {
       particles: {
-        number: { value: 80, density: { enable: true, value_area: 800 } },
-        color: { value: '#ffffff' },
-        shape: { type: 'circle', stroke: { width: 0, color: '#000000' } },
-        opacity: { value: 0.5, random: false },
+        number: { value: 50, density: { enable: true, value_area: 800 } },
+        color: { value: ['#2563eb', '#4ade80', '#ffffff'] },
+        shape: { type: 'circle', stroke: { width: 0 } },
+        opacity: { value: 0.5, random: true },
         size: { value: 3, random: true },
-        line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.4, width: 1 },
-        move: { enable: true, speed: 2, direction: 'none', random: false, straight: false, out_mode: 'out', bounce: false }
+        line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.3, width: 1 },
+        move: { enable: true, speed: 1.5, direction: 'none', random: true, straight: false, out_mode: 'out' }
       },
       interactivity: {
         detect_on: 'canvas',
-        events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true },
-        modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } }
+        events: { onhover: { enable: false }, onclick: { enable: true, mode: 'push' }, resize: true },
+        modes: { push: { particles_nb: 4 } }
       },
       retina_detect: true
     });
@@ -153,14 +311,13 @@
     // GSAP Slide-In Animations
     gsap.registerPlugin(ScrollTrigger);
 
-    // Ensure cards are visible initially
     gsap.set(".slide-in-left, .slide-in-right", { opacity: 0, x: 0 });
 
     gsap.fromTo(".slide-in-left", 
       { x: -100, opacity: 0 },
       { 
         scrollTrigger: {
-          trigger: "#about",
+          trigger: "#about, #services, #products, #collaborations, #media",
           start: "top 80%",
           toggleActions: "play none none none"
         },
@@ -175,7 +332,7 @@
       { x: 100, opacity: 0 },
       { 
         scrollTrigger: {
-          trigger: "#about",
+          trigger: "#about, #services, #products, #collaborations, #media",
           start: "top 80%",
           toggleActions: "play none none none"
         },
@@ -187,23 +344,42 @@
       }
     );
 
-   // Typed.js for Contact section heading
-const typed = new Typed('#typed', {
-  strings: ['Still Juggling Spreadsheets?', 'What if Your Tools Rented Themselves?', 'Ready to Streamline Your Rentals?', 'Transform Your Rental Business Today!'],
-  typeSpeed: 15,
-  backSpeed: 7,
-  backDelay: 1000,
-  loop: true,
-  onComplete: (self) => {
-    if (self.arrayPos === self.strings.length - 1) { // Check if it's the last string
-      self.stop(); // Stop the typing animation
-      setTimeout(() => {
-        self.start(); // Restart after 5 seconds
-      }, 5000); // 5 seconds delay
-    }
-  }
-});
+    // Navigation highlighting
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id;
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${sectionId}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }, { threshold: 0.5, rootMargin: '-50px 0px -50px 0px' });
+
+    sections.forEach(section => navObserver.observe(section));
+
+    // Typed.js for Contact section heading
+    const typed = new Typed('#typed', {
+      strings: ['Innovate with Us', 'Shape the Future', 'Empower Communities', 'Build Tomorrow'],
+      typeSpeed: 20,
+      backSpeed: 10,
+      backDelay: 1200,
+      loop: true,
+      onComplete: (self) => {
+        if (self.arrayPos === self.strings.length - 1) {
+          self.stop();
+          setTimeout(() => {
+            self.start();
+          }, 4000);
+        }
+      }
+    });
   </script>
 </body>
 </html>
-
